@@ -1,0 +1,191 @@
+Management of objects
+Data driven testing
+test execution reports
+Integration with QC/test management tools
+
+Loading selective libraries
+Gherkin,Hooks,YML (Cross browser testing), Feature, scenario regular expression
+
+Kalyan/anitha, Cucumber book
+Given,When,Then - are they the same?
+The Cucumber book 1-8,10,11, 295
+
+Questions:
+Chapter 1:
+What platforms does Cucumber support?
+Is Gherkin specific to Cucumber?
+Given->When->Then->And [Feature,Scenario,Scenario Outline,Examples]
+Cucumber stack trace
+Extensible to other technologies like webservices/database/mobile?
+How are UNIT,INTEGRATION AND FUNCTIONAL TESTS WRITTEN?
+Is BDD inside out/outside in? Explain.
+What are benefits of outside-in? Test your test for -ve scenarios. Change to app as necessary.
+This principle, deliberately doing the minimum useful work the tests will let us get
+away with, might seem lazy, but in fact it’s a discipline. It ensures that we make our
+tests thorough:
+
+
+Default folder structure of ruby (features/step-definitions)?
+You can override this structure, if you really want to, by passing arguments to Cucumber.
+
+Is there any specific rules that need to be followed to define step definition file?
+What is progress formatter? To get a more focused output. Run this command: $ cucumber --format progress
+What does ".","F" and "-" symbolize in above?
+what are the various types of formatters?
+There are formatters that produce HTML reports, formatters that produce JUnit
+XML for continuous integration servers like Jenkins, and many more.
+cucumber --help
+
+Gherkin files -> Feature files
+Step Definition -> Glue to Application
+
+Chapter 3:
+Keywords
+• Feat ure
+• Background
+• Scenario
+• Given
+• When
+• Then
+• And
+• But
+• *
+• Scenario Outline
+• Examples
+
+$ cucumber test.feature --dry-run
+The --dry-run switch tells Cucumber to parse the file without executing it. It
+will tell you if your Gherkin isn’t valid.
+
+
+Scenario: Successful withdrawal from an account in credit
+Given I have $100 in my account # the context
+When I request $20 # the event(s)
+Then $20 should be dispensed # the outcome(s)
+
+
+Feature Injection template:
+In order to <meet some goal>
+As a <type of stakeholder>
+I want <a feature>
+
+Replacing Given/When/Then with Bullets
+Scenario: Attempt withdrawal using stolen card
+* I have $100 in my account
+* my card is invalid
+* I request $50
+* my card should not be returned
+* I should be told to contact the bank
+
+Stateless
+Each scenario must make sense and be able to be executed independently of
+any other scenario
+
+Just like a Feat ure, a Scenario keyword can be followed by a name and description.
+
+Comments:
+Like in Ruby, comments start with a # character. Unlike in Ruby, comments
+have to be the first and only thing on a line (well, apart from whitespace).
+
+Spoken Languages:
+Putting a # language: comment on the first line of a feature file tells Cucumber
+which spoken language that feature is written in. If you omit this header,
+Cucumber will default to English, as you’ve already seen.
+
+# language: no
+Egenskap: Summering
+For å unngå at firmaet går konkurs
+Må regnskapsførerere bruke en regnemaskin for å legge sammen tall
+Scenario: to tall
+Gitt at jeg har tastet inn 5
+Og at jeg har tastet inn 7
+Når jeg summerer
+
+If you’re wondering whether Cucumber knows how to speak your language,
+you can ask it for the list of all valid languages with this command:
+$ cucumber --i18n help
+Så skal resultatet være 12
+
+If you’re wondering whether Cucumber knows how to speak your language,
+you can ask it for the list of all valid languages with this command:
+$ cucumber --i18n help
+
+
+What We Just Learned
+Let’s review what we’ve talked about in this chapter:
+• We saw how the core Gherkin keywords Feat ure, Scenario, Given, When, and
+Then can be used to describe the behavior your stakeholders want as
+concrete examples.
+• There is a fundamental pattern to each Gherkin scenario, with a context
+(Given), an event (When), and an outcome (Then).
+
+So, Can I Mix Spoken languages in My Features?
+A project can have a mix of features that use different spoken languages, yes. However,
+remember that the setting is for a feature, so all the scenarios in a feature have to
+use the same spoken language.
+• Each scenario must be capable of being run on its own and should not
+depend on data set up by other scenarios. This means every scenario has
+to include enough Given steps to set up all the data it needs.
+• You can add descriptions and comments to your .feature files to turn them
+into useful documentation of your system.
+• Using the #language: header, you can write your features in different spoken
+languages.
+
+Chapter 4:
+Now that we’ve learned that Cucumber ignores the Given/When/Then keyword
+when matching a step
+
+'===============================================
+TDD - Tests first with code written to pass the test and improvise to match standards.(outside-in approach)
+BDD - Advanced TDD. Dan North
+Given <pre-requisite>
+When <action/operation>
+Then <result verification>
+
+
+
+Gherkin - applicable to Cucumber and Behat
+DDD (Domain Driven Design)
+Cucumber - Aslak Hellsoy,Matt Wynne
+
+Aslak created Cucumber in 2008, and Matt has been one of its most active users from day one.
+
+Advantages:
+it’s more than a testing tool; it’s a collaboration tool.
+ubiquitous language for talking about the system.
+
+Living Documentation - your documentation,rather than being something that’s written once and then gradually goes out
+of date, becomes a living thing that reflects the true state of the project.
+
+Source of Truth - For many teams, they become the definitive source of truth as to what the system does.because different
+parts of the team no longer have their own personal versions of the truth.
+
+
+you can write your specifications in more than forty different spoken languages, you can use tags to organize and group your
+scenarios, and you can easily integrate with a host of high-quality Ruby automation libraries to drive almost any kind of application.
+
+basic syntax rules. The name for this set of rules is Gherkin.
+
+
+remember every single little detail about what your system can and can’t do. Every team needs someone like that.
+Even better than that, Cucumber will volunteer to do all the boring repetitive checks that you need to run to make sure that the system is working as
+expected. This frees your testers up to do interesting, creative work instead,and it gives programmers the courage to perform major surgery to the code
+when it’s required. Business stakeholders warm to Cucumber’s open attitude,sharing everything that the development team is doing in terminology that
+they can actually understand.
+
+These tests are different from unit tests, which are aimed at developers and help them to drive out and check their software designs. It’s sometimes said
+that unit tests ensure you build the thing right, while acceptance tests ensure you build the right thing.
+
+Ruby1 is an open source programming language that can be installed and run on all major operating systems.
+One of Ruby’s many strengths is how good it is at talking to other languages and platforms, and we’ll show you how to use Ruby tools to test web-based systems
+that could be written in any language.
+
+Summary:
+collaboratively specify the work that’s about to be done using automated acceptance tests.
+
+When the acceptance tests are written as examples, they stimulate people’s imaginations and help them see other scenarios they hadn’t previously
+considered.
+
+When the team write their acceptance tests collaboratively, they can develop their own ubiquitous language for talking about their problem domain. This
+helps them avoid misunderstandings.
+-----------------------------
