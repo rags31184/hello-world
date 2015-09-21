@@ -1,0 +1,531 @@
+http://toolintegrator.com/
+http://www.linkedin.com/groups/how-integrate-selenium-QC-Please-961927.S.57493355
+https://groups.google.com/forum/#!topic/selenium-users/2_zyjhZN_XY
+http://www.ibm.com/developerworks/library/a-automating-ria/
+Challenges - Moving Elements vs. Static elements (eg: visual Identifier). Ans. definitive xpath(NOT robust)
+
+Important Terms:
+Generic:
+a) Mark Up language
+b) CSS
+c) Meta Data, Annotations
+d) Firebug/Fire Path
+   https://getfirebug.com/html
+e) Locators (6),Filters
+f) DOM - document.links[0]/document.getElementById("but1")
+   http://www.w3.org/TR/DOM-Level-2-Core/introduction.html
+   https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
+   The Document Object Model (DOM) is an application programming interface (API) for valid HTML and well-formed XML documents. It defines the logical structure of documents and the way a document is accessed and manipulated.
+g) Formatters
+h) AJAX
+i) Interface - http://docs.oracle.com/javase/tutorial/java/concepts/interface.html
+j) Git - http://en.wikipedia.org/wiki/Distributed_revision_control
+
+
+Selenium:
+h) Selenium Flavours -> IDE,RC,WebDriver,Grid
+i) Node?
+
+'--------------------------------------------------------------
+Maven->Jenkins (Build/CI)
+
+
+Selenium (Run-Engine)
+^
+|
+	[OPTIONAL] TEST NG/JUNIT [FW/DRIVER]
+^
+|
+Programming Language
+
+
+	[OPTIONAL] Cucumber/Concordian/Jebehave/RSpec (Gherkin) / USER DEFINED FRAMEWORK
+
+
+http://www.questionselenium.com/2012/10/xpathfirebug-and-firepath.html
+
+'====================================================================================================
+CHAPTER 1
+'====================================================================================================
+- Selenium can work on any browser that supports JavaScript, since Selenium has been built using JavaScript.
+- Selenium IDE is a Firefox Add-on developed originally by Shinya Kasatani as a way to use the
+original Selenium Core code without having to copy Selenium Core onto the server.
+- Selenium Core is the key JavaScript modules that allow Selenium to drive the browser. It has been
+developed using JavaScript so that it can interact with DOM (Document Object Model) using native JavaScript calls.
+
+The Document Object Model (DOM)
+-------------------------------
+is a cross-platform and language-independent convention for representing and interacting with objects
+in HTML, XHTML, and XML documents. The nodes of every document are organized in a tree structure, called the DOM tree.
+
+Language Binding
+----------------
+In computing, a binding from a programming language to a library or operating system service is an application programming interface (API)
+ providing glue code to use that library or service in a particular programming language.
+
+Binding generally refers to a mapping of one thing to another. In the context of software libraries, bindings are wrapper libraries 
+that bridge two programming languages so that a library written for one language can be used in another language.[1] Many software libraries are
+ written in system programming languages such as C or C++; in order to use these libraries from another (usually higher-level) language such as 
+Java, Common Lisp, Python or Lua, a binding to the library must be created in that language, possibly requiring the recompilation of the language's
+ code depending on the amount of modification necessary.[2] However, most languages offer an interface to foreign functions, such as Python's ctypes
+ and Embeddable Common Lisp's cffi and uffi.[3][4]
+
+For example, Python bindings are used when an already existing C library written for some purpose is to be used from Python. 
+Another example is libsvn, which is written in C and provides an API for accessing Subversion; in order to access Subversion from
+ within Java code, libsvnjavahl can be used, which depends on libsvn being installed and acts as a bridge between the Java programming language and 
+libsvn, thus providing an API that invokes functions from libsvn to do the real work.[5]
+
+Software reuse is a major motivation for creating library bindings, rather than reimplementing the library in several languages. 
+Another is the impossibility of implementing certain algorithms efficiently in high-level languages.
+
+
+- Formatters - https://code.google.com/p/selenium-vba/ (Ruby,Python,Java,C#)
+- Plug-Ins available for IDE : http://docs.seleniumhq.org/download/
+
+Rules for automation:
+---------------------
+- Tests should always have a known starting point. In the context of Selenium, this
+could mean opening a certain page to start a workflow.
+- Tests should not have to rely on any other tests to run. If a test is going to add
+something, do not have a separate test to delete it. This is to ensure that if
+something goes wrong in one test, it will not mean you have a lot of unnecessary
+failures to check.
+- Tests should only test one thing at a time.
+- Tests should clean up after themselves.
+
+-The first is assert; this allows the test to check if the element is on the page. If it is not
+available then the test will stop on the step that failed. 
+-The second is verify; this also allows
+the test to check the element is on the page, but if it isn't then the test will carry
+on executing.
+- We have just seen that we can add Asserts or Verification to the page. Selenium IDE does not
+do this when recording, so it will always be a manual step. 
+*** CORE AUTOMATION FEATURES FOR WEB: Synchronization, Multiple Windows,Dynamic Value - capture and use 
+
+
+***4 COMMANDS WITH FIVE ATTRIBUTES (Applicable to respective Objects)
+Context Menu Commands:
+assertTitle
+assertText
+assertValue
+assertTable
+assertElementPresent
+
+verifyTitle
+verifyText
+verifyValue
+verifyTable
+verifyElementPresent
+
+waitForTitle
+waitForText
+waitForValue
+waitForTable
+waitForElementPresent
+
+
+storeTitle
+storeText
+storeValue
+storeTable
+storeElementPresent
+
+
+- The Selenium IDE context menu - Insert New Comment (Comments will always appear as purple text in the IDE.)
+Multiplying windows - 
+
+verifyElementPresent
+assertElementPresent
+verifyElementNotPresent
+assertElementNotPresent
+verifyText
+assertText
+verifyAttribute
+assertAttribute
+verifyChecked
+assertChecked
+verifyAlert
+assertAlert
+verifyTitle
+assertTitle
+
+Working with Multiple Windows
+---------------------
+Sometimes Selenium IDE will add a clickAndWait instead of a click command.This is because it notices that the page has to unload.
+If this happens just change the clickAndWait to a click so that it does not cause a timeout in the test.
+
+Any commands that require a page to load from a web server will have a waitFor command.
+
+The next command is the selectWindow command. This command tells Selenium IDE that it will need to switch context to the window,
+ called popupwindow, and will execute all the commands that follow in that window unless told otherwise by a later command.
+
+
+Once the test has finished with the popup window, it will need to return to the parent window from where it started. 
+To do this we need to specify null as the window. This will force the selectWindow to move the context of the test back to its parent window.
+
+AJAX
+---------------------
+Web applications today are being designed in such a way that they appear the same as desktop applications - using AJAX.
+Asynchronous JavaScript And XML - JavaScript creating asynchronous calls and then returning XML with the data that the user
+or application requires to carry on.
+
+AJAX does not rely on XML anymore;JSON, JavaScript Object Notation, which is more lightweight in the way that it transfers the data.
+It does not rely on the extra overhead of opening and closing tags that is needed to create valid XML.
+
+IMP:
+The term Ajax has come to represent a broad group of Web technologies that can be used to implement a Web application that communicates
+with a server in the background, without interfering with the current state of the page. 
+
+HTML (or XHTML) and CSS for presentation
+The Document Object Model (DOM) for dynamic display of and interaction with data
+XML for the interchange of data, and XSLT for its manipulation
+The XMLHttpRequest object for asynchronous communication
+JavaScript to bring these technologies together
+
+
+
+
+waitForElementPresent
+Options->General->Default TimeOut
+setTimeout
+
+waitForAlertNotPresent
+waitForAlertPresent
+waitForElementPresent
+waitForElementNotPresent
+waitForTextPresent
+waitForTextNotPresent
+waitForPageToLoad
+waitForFrameToLoad
+
+e.g. Implicit call for wait command. 
+clickAndWait - will fire off a click command and then fire off a waitForPageToLoad.
+Open         - which only completes when the page has fully loaded.
+
+
+
+Storing information from the page in the test
+'---------------------------------------------
+JavaScript dictionary that Selenium keeps track of
+${variableName} or storedVars['variableName']. (format as it is within Selenium internals)
+
+
+Debugging Tests
+'---------------------------------------------
+1. Highlight a command.
+2. Press the X key, this will make the command execute in Selenium IDE.
+
+Pause + Step through
+set breakpoints
+
+Find
+
+equivalent to Console.log in JavaScript. For example, echo | ${variableName}.
+
+Challenges:
+1) Silverlight and Flex/Flash applications - operate in their own sandbox and NOT dom
+2) HTML 5 (contentEditable=true attribute)
+3) Canvas elements on the page - so you will not be able to make your tests move items around on a page.
+4) Selenium cannot do file uploads. This is due to the JavaScript sandbox not allowing JavaScript to interact with <input type=file> elements on a page.
+   We will be able to automate a number of these elements with Selenium WebDriver.
+
+
+'====================================================================================================
+CHAPTER 2
+'====================================================================================================
+In HTML, it is seen as good practice to make sure that every element you need to interact with has an ID attribute and a Name attribute.
+Unfortunately, following best practices can be extremely difficult to do,especially when building the HTML dynamically on the server before sending it
+back to the browser.
+
+ Locate elements by ID
+ Locate elements by Name
+ Locate elements by Link
+ Locate elements by XPath
+ Locate elements by CSS
+ Locate elements by DOM
+
+'---------------------TOOLS
+Firebug: https://addons.mozilla.org/firefox/addon/firebug
+Firebug has become the defacto tool for web developers as it allows developers to find elements on the page by using the find functionality.
+It has a JavaScript REPL. REPL stands for Read-Eval-Print-Loop or interactive shell that allows you to run JavaScript without having to create an entire page.
+
+SHELL:
+In computing, a shell is a user interface for access to an operating system's services. In general, operating system shells use either a command-line interface (CLI) or graphical user interface (GUI), depending on a computer's role and particular operation.
+
+Difference between locator(6 above) and selector (value) and filter (usage of name and additional attribute value) ?
+A control would be an element that we can interact with and is not static text.
+ 
+Firefinder: https://addons.mozilla.org/firefox/addon/firefinderfor-firebug.A very good tool for testing out XPath and CSS on the page. It will highlight all
+elements on the page that match the selector to your element location.
+
+IE Developer Tools:
+This is built into IE7, IE8 and IE9 that we can launch by pressing F12. It also has a number of features that Firebug has.
+?
+Google Chrome Developer Tools:
+This, like IE, is built into the browser and will also allow you to find the elements on the page and be able to work out its XPath.
+
+
+Since the test is using the ID of the element, if that element were to be moved around, it would find the item without any issue.
+This is one of the main plus points of Selenium over a lot of the competing test frameworks out there.
+
+
+'*******************
+There are times where the DOM will be updated via AJAX and this means that our locator needed for the test will need some form of JavaScript to see if it is there.
+DOM:(Dynamic Page - e.g. AJAX)
+document.links[0]; --- document = HTML document links[0] --- First instance in the array of object type <e.g. links, div>
+document.links[0]/document.getElementById("but1")
+
+
+
+XPATH:(Non standard markup/Dynamic Page - e.g. element id from DB)
+XPath allows us to query the DOM as though it were an XML document. With XPath we can do some rather complex queries to find elements on the page that may not have been accessible otherwise.
+
+'******************** XPATH
+1) DIRECT XPATH: (Adv: Quicker Disadv: Maintenance required if object is moved on the page and therefore not used)
+   xpath=/html/body/div[2]/div[3]/input
+   Instead of using the //, you can use a single / but you will need to make sure that the first node in your query is HTML.
+
+2) GREEDY QUERY: xpath=//input 
+xpath - identifier (best practice to have the keyword but its optional)
+//-first occurrence
+
+3) SIBLING ITEMS: e.g. //div[2] *** Starts from 1 [e.g. Button in a WebTable]
+   If you wanted to interact with the second element then your query would look like //div[2]. Note that the second to nth element need to be sibling nodes of the first element that is returned.
+
+
+4) XPATH FILTERS/ATTRIBUTES:
+   a) xpath=//element[@attribute='attribute value']
+      xpath=//div[@class='classname']
+   b) "This element has an ID that changes every time the page is loaded", you will use //div[contains(@id,'time_')].
+   c) 'starts-with' : //div[starts-with(@id,'time_')]
+
+5) //element[text()='inner text']
+  //element[contains(text(),'inner text')]
+
+6) XPATH AXIS:
+//input[@value='Button with ID']/following-sibling::input [@ value='Sibling Button']
+//input[@value='Sibling Button']/preceeding-sibling::input[@ value='Button with ID']
+
+Axis name Result
+ancestor          Selects all the ancestors (parent, grandparent, and so on) of the element
+descendant        Selects all the descendants (children, grandchildren, and so on) of the element
+following         Selects all elements that follow the closing tab of the current element
+following-sibling Selects all the siblings after the current element
+parent            Selects the parent of the current element
+preceding         Selects all elements that are before the current element
+preceding-Sibling Selects all of the siblings before the current element
+
+
+NOTE: Browsers like Internet Explorer 6 do not have built-in XPath libraries and
+rely on doing the XPath query via JavaScript which can mean that a test
+that uses XPath can run two or more times slower than a test with IDs. The
+more complex the XPath, the slower the test since it needs to do more DOM
+traversals which is an expensive operation.
+
+http://financial-dictionary.thefreedictionary.com/ and use contains(), starts-with(), and ends-with() on the page. Use the call
+getXPathCount() to see how many items you can get with your XPath query.
+
+
+NOTE:
+It must be noted that Selenium IDE and Selenium RC uses Sizzle, the framework used for selectors in jQuery, to find elements on the page. Not all of these can be translated to work in Selenium WebDriver. When we come across items like this, it will be mentioned in that section.
+
+'***************** CSS
+css=cssSelector
+Selenium is compatible with CSS 1.0, CSS 2.0, and CSS 3.0 selectors. There are a number of items that are supported like namespace in CSS 3.0 and
+some pseudo classes and pseudo elements.
+
+Syntax: css=cssSelector
+
+        0) Finding elements by their CSS class is going to be the most common method
+
+        1) USING CSS CLASS ATTRIBUTES IN CSS SELECTORS: 
+           A lot of the queries that people create start with a containing node distinguishing it by the CSS class and then moving through the DOM to a child or
+          grandchild node to find the element that you wish to work again.
+          css=div.centerdiv
+
+        2) USING ELEMENT IDS IN CSS SELECTORS:
+          css=#divinthecenter. This is due to IDs on elements having to be unique.
+
+
+        3) FINDING ELEMENTS BY THEIR ATTRIBUTES:
+           a) Syntax: node[attribute='value']
+           b) Chaining of attributes - css=node[attr1='value1'] [attr2='value2']
+           c) Partial Matches on Attributes:
+              Syntax Description
+                ^= XPath starts-with.
+                $= XPath ends-with.
+                *= XPath contains.
+ 
+        4) ANY DESCENDANT : css=div.leftdiv input //looks for any descendant that will match.This is the equivalent to using descendant in your XPath query
+            div[class='leftdiv']
+
+           FIRST DESCENDANT (>): css=div.leftdiv > input or css=div.leftdiv input
+
+       
+        5) i) following-sibling ii) +
+
+        
+           <div id="divontheleft" class="leftdiv">
+	   <input id='but1' value='Button with ID' type='button'/>
+           <br/>
+           <input value='Sibling Button' type='button'/>
+           </div>
+           css=input#but1 + br + input
+
+           Unlike in normal CSS, Selenium is only interested in the first element that matches the query and that is why in the second picture only the first button was highlighted and not its sibling.
+
+       6) FINDING THE NTH ELEMENT WITH CSS
+          PSEUDO CLASSES: css=div#divinthecenter *:nth-child(3)
+                          a) Selenium does not support the :nth-of-type pseudo class
+                          b) This pseudo class is extremely greedy in the way that it does look up over the page. It is also not available to the element selector
+                             library that is in use by Selenium. This is why the selector is using the wildcard * and then finding the nthchild
+                             from our starting div. The downside to using a selector in this manner is if any other node was placed in the way it would make the 
+                             tests fail.
+       7) FINDING AN ELEMENT BY ITS INNERTEXT:
+          contains pseudo class; part of Sizzle which is used in Selenium IDE and Selenium RC
+          *** This will only work on browsers that do not have the CSS querySelector available. ***
+          WebDriver delegates that task down to the browser if it can. I would recommend not using :contains if you plan on moving to Selenium WebDriver.
+
+         It is important to know that CSS selectors only have a read forward process. This means that you cannot find an element and then traverse backwards up the DOM.
+         This is what makes CSS selectors a lot faster than XPath queries to find the same elements.
+
+          *********** GOOGLE MAPS *************
+          If locator does not have the locator type identifier in front of it, Selenium will default to the following strategies:
+??          DOM: For locators starting with document
+??          XPath: For locators starting with //
+??          Identifier: For any other locator using ID and name of the element
+
+'====================================================================================================
+CHAPTER 3
+'====================================================================================================
+History:
+IDEA Intellij : http://www.jetbrains.com/idea/download/ (tools needed to build tests successfully)
+JUNIT : https://github.com/KentBeck/junit/downloads. (drive the tests and do asserts during the tests)
+
+SELENIUM IDE <Name,Approach,Limitation>
+-------------
+Selenium - Jason Huggins - getting the browser to do user interactions.
+limited by the JavaScript sandbox in browsers. The JavaScript sandbox enforces security policies while JavaScript is executing to prevent malicious code executing
+ on the client machine. The main security policy people come across is the Same Origin Policy. If you needed to move from HTTP to HTTPS, like you
+normally would during a log on process, the browser would block the action because we are no longer in the same origin.
+
+The Selenium API was originally designed to work from within the server.
+
+The developer or tester writing the tests had to do so in HTML using a three column design based on the FIT.
+
+It has a number of issues in that you cannot do anything that you may do with a Turing complete language.
+
+SELENIUM RC
+--------------
+Patrick Lightbody and Paul Hammant created Selenium Remote Control using Java as a web server that would proxy traffic.
+
+It would inject Selenium onto the page and then it would be used in a similar manner as to what it was in the three column manner.
+This also creates more of a procedural style of development.
+
+Selenese, has had the unfortunate consequence that the API has grown organically so that users can manipulate the browser the way they intend but still keep 
+to the original three column syntax. There is somewhere in the region of 140 methods available which makes picking the right method for the job rather difficult.
+
+With the move to mobile devices and HTML5, Selenium RC was starting to show that it wasn't able to fulfill its original requirement: browser automation
+ to mimic what the user is doing.
+
+SELENIUM WEB DRIVER
+--------------
+Simon Stewart, having hit a number of these issues, wanted to try a different approach to driving the browser.
+Object Orientated development
+http://www.aosabook.org/en/selenium.html.
+
+
+RC: Javascript
+WD: Accessibility API
+
+RC: Automate the browser from within the browser  : Javascript - embedded in browser
+WD: Automate/control the browser from outside the browser : Uses Accessibility API
+
+RC: Readily supports new browsers
+WD: Uses the best possible way to access the accessibility API.
+    Firefox - JS;IE-C++.
+    Therefore does NOT readily support new browsers.
+    Where that approach doesn't work we will then inject JavaScript into the page. Examples of this are found in the new HTML5.
+
+ARCHITECTURE:
+
+
+
+
+
+---------------------------------
+Either driver.findElement(By.cssSelector("h1")).getText() 
+or driver.findElement(By.tagName("h1")).getText(); will work just fine for you.
+
+driver.switchTo().frame("body"); 
+System.out.println(driver.findElement(By.tagName("h1")).getText());
+
+You can also use this code:-
+List<WebElement> lists =driver.findElements(By.tagName("h1"));
+for(WebElement list : lists){
+String s = list.getText();
+if(s.equals("Welcome to Funworld"){
+System.out.println(s);
+}
+break;
+}
+---------------------------------
+
+
+SELENIUM RC:
+- Injects Selenese within the Browser OR Javascript in Selenium RC would emulate user actions; automate the browser within the browser
+- purely written in Javascript
+  ADVANTAGE:new browsers entering the market will be supported straight away.
+  DISADVANTAGE: Browsers are NOT controlled in the best possible way
+- Procedural development
+- Does NOT support HTML5 and MobileBrowsers
+
+
+SELENIUM WEBDRIVER:
+- Controls the Browser from outside the browser
+- It uses accessibility API to drive the browser. The accessibility API is used by a number of applications for accessing and controlling applications
+  when they are used by disabled users and is common to web browsers.
+- WebDriver uses the most appropriate way to access the accessibility API.
+  Firefox           - Javascript
+  Internet Explorer -  C++
+  ADVANTAGE : This approach means we can control browsers in the best possible way 
+  DISADVANTAGE:new browsers entering the market will not be supported straight away like we can with Selenium RC. 
+               Where that approach doesn't work we will then inject JavaScript into the page.
+
+
+
+- Object Oriented Development
+- Supports HTML5 and MobileBrowsers
+
+
+WEBDRIVER API
+|
+WEBDRIVER SPI
+|
+JSON WIRE PROTOCOL
+|
+SELENIUM SERVER
+
+
+1) The WebDriver API is the part of the system that you interact with all the time. This is made up of the WebDriver and the WebElement objects.
+	driver.findElement(By.name("q"))
+	and
+	element.sendKeys("I love cheese");
+
+2) Stateless.
+   When code enters the Stateless Programming Interface or SPI, it is then called to a mechanism that breaks down what the element is, by using a unique ID, 
+   and then calling a command that is relevant. All of the API calls above then call down.
+   Using the example in the previous section would be like the following code, once it was in the SPI:
+	findElement(using="name", value="q")
+	sendKeys(element="webdriverID", value="I love cheese")
+
+   From there we call the JSON Wire protocol. We still use HTTP as the main transport mechanism. We communicate to the browsers and have a simple client server
+   transport architecture the WebDriver developers created the JSON Wire Protocol.
+
+3) The WebDriver developers created a transport mechanism called the JSON Wire Protocol.This protocol is able to transport all the necessary elements to the code
+   that controls it. It uses a REST like API as the way to communicate.
+
+
+4) The Selenium server, or browser, depending on what is processing, uses the JSON Wire commands to break down the JSON object and then does what it needs to.
+   This part of the code is dependent on which browser it is running on.
+   As mentioned earlier, it could be done in the browser via C++; if it's in IE or if not available we inject Selenium.
