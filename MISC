@@ -1,0 +1,99 @@
+1) a) VC  - PREP [TODAY]
+   b) NPV - 6 PLAN
+   c) NEW - GAIL(asterisk)/G-VCE(718)/SK(asterisk)
+   d) PH  - #AC [OPTIONAL]
+   d) INT PREPARE :
+
+2) SEARCH CRITERIA - ME.H
+
+3) SNAPSHOT R-HISTORY/E-LETTER [TODAY]
+
+4) YOB - [CONTACTS - VC FWD]
+       - Reference (professional id, ph #) : vreddy64@csc.com
+       - Mac Air [research],DUAL - PH,MIS,OG-OBH
+
+5) *** INTRODUCTION - a) 9.3 mnths - 8+ Automation (AE/ALead/A Architect - Current)
+                      b) Key Achievements:
+			                           	
+                             Architect: End to end roll out of BPT as part of transition in 2013-2014
+                                        - Estimation & Plan *****
+                                        - Design Approach (Page-component, ALM test configurations, flow) *****
+                                        - Process Specifics (standards and best practices, automation lifecycle (dev and maintenance), training documents *****
+                                        - Automation and resolving technical challenges (global variable*****)
+                                          VALUE ADDS: Mainframe Automation (APIs and XML approach as opposed to TE Add-In) *****
+
+                                        - Metrics collection (work closely with ALM Admin)
+                                                   - ALM utilities (Defect Aging, Component Details/Metrics, Re-Use - test configurations) *****
+                                                   - DDE, Performance Improvement,Performance Improvement, Inc. automation coverage. Build validation. *****
+					- Led a team of team of 6 (Onsite + Offshore)
+                                          Challenges: Migration across ALM Projects - artifact corruption
+                                                    Cross browser testing
+                                                    Metrics (distinguish b/w an automated and manual run*****)
+                                                    # of tickets with HP Suppport and conversion to enhancement request *****
+                                                         - test config as a tab,
+
+			     Technical: Framework enhancements, Experience in FW Design (Brush up FAST*****), utilities to automate manual tasks (metrics + XML*****)
+
+                             Current Role : Establish Process and best practices for ATDD Migration using a Selenium-Java Framework (PROCESS)
+                     
+                     c) Tools - QTP 10,11,UFT 11.53, UFT 12.02 *****
+         		      - Hybrid Automation Frameworks, CAF-OVERVIEW (hybrid automation fw)
+                              - BPT DESIGN APPROACH,PREPARE DESIGN DECKS, MAINFRAME
+
+                     CHALLENGES & OVER COME: 
+           		- Execution Time - distributed execution using a hyper-v vm infrastructure and batch execution
+                        - Flex Application
+
+                        - listbox option clicked as a web-object with co-ordinated and offset
+                        - Winlistview that we need to process using analog recording (re-scoped scenarios and automated the same)
+                        - Virtual Objects, Dynamic entities, Regular expression
+
+                     VALUE ADDS: Mainframe Automation (APIs and XML approach as opposed to TE Add-In)
+                     Question: J2EE/Websphere???
+
+*** Questions: a) Client Name, P-Duration
+               b) Emp. directly by microxcl? / direct/multiple layers
+               c) Pkg & Policies? 
+                  - a) Hourly/Sal; Benefits/No-Benefits
+                  - b) PAY OR profit sharing ratio - 80/20 OR 90/10
+                  - Gross + Net + benefits (Insurance, leaves, Relocation, Visa Fees, GC (?))
+                  - FTE
+                  - Joining period, Jan constraint.                 
+               d) IMPACT OF AMMENDMENT
+               e) When can I get confirmation
+
+
+		@JV: REVIEW CRITERIA
+                     - myvisajobs.com - visa rejection rate
+    		     - owned by - D/firm 
+     		     - reviews (sal payout)     		
+                     - take home (paycheckcalculator) + policies (Questioned above)
+
+*** Preps: DECKS, COMPARISON CHARTS (QTP,BPT), FW TYPES, CAF-FW, BPT-DESIGN
+           UFT latest version and features, BPT design approaches
+           W3SCHOOLS(DB)/T-POINT
+           QTP - interview questions
+           CATER TO ALL REQUIREMENTS SPECIFIED???
+
+
+
+        1)	Case ID 4646846267 - Unable to promote output parameters of multiple components to ONE FLOW O/P Param
+		Enhancement Request Logged by HP - QCCR1J6934
+
+	2)	Case ID 4646656269 - Issue with 'On Failure' - Exit in ALM Test Plan
+		Enhancement Request Logged by HP - QCCR1J68237
+
+	3)	Case ID 4646634673 - Data dictionary objects cleared during BPT execution. 
+		Enhancement Request referenced by HP - QCCR1J68110
+
+	4) 	Case ID 4646551443 - Current BPT Iteration during execution
+		Enhancement Request referenced by HP - QCCR1J30415
+
+	5)      Test Configuration Tab	
+
+	6)	4650273453	Request to Update Screen View: 'Test iterations' in ALM Test Lab	Product Enhancement Request	103572246860
+
+	7) 	4649934130	Need to distinguish automated and manual run instances for BPT
+
+	        4650273802	HP BPT: Results NOT posted in ALM	Product Technical Issue	
+	        4650138620	Unable to delete FLOW from BPT	        Product Technical Issue
