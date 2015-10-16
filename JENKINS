@@ -1,0 +1,146 @@
+Jenkins - Continuous Integration and Delivery Platform
+-------------------------------------------------------
+
+What is Continuous Integration & Delivery?
+------------------------------------------
+Continuous Integration is a s/w dev practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day.
+Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible - Martin Fowler
+
+
+With agile projects, apart from integrating the code frequently, there is a need to deliver/deploy the code to
+production more frequently.[Solution is to automate]
+
+
+Below cycle needs to be carried out more frequently
+Commit -> 
+	 Build & Unit Test -> 
+			     Deploy -> 
+				      Functional Test -> 
+							Fix Errors/Add new features
+
+How does Jenkins help here?
+----------------------------
+Jenkins helps automate all stages of continuous integration & delivery pipeline.
+
+
+At the core, Jenkins allow to define steps to be executed in sequence/parallel.
+Example steps:
+- Perform a s/w build with Apache Maven or Gradle
+- Run a shell script/batch script
+- Deploy the code
+- Run integration tests
+This definition of steps together is called "Job".
+
+
+Jenkins then executes the job based on a certain trigger.
+The trigger includes:
+- Change in source code repository like developer checks in code.
+- Cron like schedule which says for example run these steps every 2 hours.
+- Completion of some other job. e.g. Run deploy after build is successful.
+- Manual
+
+Jenkins also monitors the execution of the steps and allows to stop the process if one of the steps fails.
+Jenkins allows to notify users about the build success or failure through email or RSS feeds.
+
+Quick facts about Jenkins
+---------------------------
+- Jenkins is an award winning, free, open source platform written in Java.
+- Jenkins was originally developed as the Hudson project and started in summer 2004 at Sun Microsystems. In 2010,
+  Oracle took over Sun Microsystems. In 2011, Jenkins was forked from Hudson after a dispute with Oracle.
+- Community driven and has over 550 Contributors.
+- Released under the MIT License which permits reuse in proprietary software.
+- Jenkins produces a new release weekly to deliver bug fixes and new features rapidly to users and plugin developers
+  who need them.
+- Long_Term Support (LTS) Release every 12 weeks.
+- Many companies, open source projects and other organizations use Jenkins. Over 70000 active installations worldwide.
+
+Features
+---------------------------
+- Easy installation:
+  Just run java -jar jenkins.war, deploy it in a servlet container. No additional install, no database. Installer or 
+  native packages are also available for Windows, Ubuntu/Debian, Red Hat/Fedora/CentOS, Mac OS X, openSUSE, FreeBSD, 
+  OpenBSD and Gentoo. It is also available to download as docker image.
+
+- Easy configuration:
+  Jenkins can be configured entirely from its friendly web GUI with extensive on-the-fly error checks and inline help.
+  Configurations are saved in xml file which can be tweaked manually if required.
+
+- Rich plugin ecosystem:
+  Jenkins at the core provides minimal features. You can add support for additional feature by installing plugins.   Currently over 1082 plugins are available to support building and testing virtually any project using different
+  programming languages like Java,C,C++,Javascript,C#,Python,Ruby,PHP,etc.
+
+- Extensibility:
+  Most parts of Jenkins can be extended and modified, and it's easy to create new Jenkins plugins. This allows you to
+  customize Jenkins to your needs. You can write your own plugins to make Jenkins support tools/processes that your team   uses.
+
+- Distributed builds:
+  Jenkins can distribute build/test loads to multiple computers with different operating systems. This allows efficient   use of infrastructure as well as support for specific build/test needs.
+
+- Security:
+  Access control can be setup at a finer level. Users can be configured in Jenkins own user database, or it can reuse
+  authentication setup by servlet container hosting Jenkins or LDAP.
+
+- Remote Access API: Jenkins provides machine-consumable remote access API to its functionalities. Currently it comes
+  in three flavors namely XML,JSON with JSONP support and Python. Remote API can be used to do things like retrieve
+  information from Jenkins for programmatic consumption, trigger a new build, and create/copy jobs.
+
+Distributed builds with Jenkins
+-------------------------------
+- Jenkins supports the "master/slave" mode, where the workload of building projects are delegated to multiple "slave" nodes.
+- A "master" is the basic installation of Jenkins.
+- A "slave" runs a separate program called a "slave agent" and hence doesn't need full Jenkins installation on slave machine. Slave machine is configured using master Jenkins interface.
+- This architecture allows a single Jenkins installation to host a large number of projects, or to provide
+  different environments needed for builds/tests.
+- Slaves can be grouped to perform a particular kind of task. e.g. Build or test.
+- Distribution of tasks to slaves is fairly automatic.
+
+	Master
+	  |
+Custom	Label - 		Label- Test
+Slave   Build Slaves		Slaves
+	  |	    |		      |		 |
+	Build     Build		Test-Slave1	Test-Slave2
+        Slave 1   Slave 2
+
+Jenkins Script Console
+-------------------------------
+- Groovy script
+- Useful for trouble-shooting, diagnostics and mass updates.
+- Administrator privileges are required to access script console.
+
+
+Jenkins Monitoring
+-------------------------------
+Jenkins being a Java application, you can monitor it using tools you would do to monitor any Java Application.
+e.g. You can configure JMX port in jenkins.xml file to enable monitoring using JMX. Then just use any JMX client like Jconsole to perform monitoring.
+
+There is also monitoring plugin (https://wiki.jenkins-ci.org/display/JENKINS/Monitoring) available,
+which will show monitored data on the Jenkins browser itself.
+
+Jenkins Free Support
+------------------------------------
+channels like Chat using an IRC client, mailing lists and twitter.
+mailing lists: jenkinsci-users and jenkinsci-dev
+events@lists.jenkins-ci.org
+
+
+Jenkins - Commercial Support
+------------------------------------
+Cloud Bees
+Creator: Kohsuke Kawaguchi
+- Jenkins Enterprise - Enterprise plugins such as High Availability, VMware Auto-scaling and Role-based Access Control as well as professional support from Jenkins experts.
+
+- Jenkins Operations Center - dashboard for Jenkins, providing central control and visibility for CI throughout your organization and the ability to share build nodes between masters.
+
+- Hosted Jenkins - Use the cloud to instantly spin up and scale as much Jenkins as you need, and spend less time
+  administering.
+
+
+References
+------------------------------------
+- Jenkins downloads: http://jenkins-ci.org/
+- Wiki: https://wiki.jenkins-ci.org/display/JENKINS/Home
+- CI for Jenkins: https://ci.jenkins-ci.org/
+- Source code: https://github.com/jenkinsci/jenkins
+------------------------------------
+------------------------------------
