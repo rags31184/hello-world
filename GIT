@@ -1,0 +1,228 @@
+Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later.
+For the examples in this book you will use software source code as the files being version controlled, though in reality you can do this with nearly any type of file on a computer.
+
+Local Version Control Systems:
+- copy files into another directory (perhaps a time-stamped directory, if they’re clever). 
+- It is easy to forget which directory you’re in and accidentally write to the wrong file or copy over files you don’t mean to.
+- local VCSs that had a simple database that kept all the changes to files under revision control.
+
+
+Centralized Version Control Systems:
+- The next major issue that people encounter is that they need to collaborate with developers on other systems.
+- These systems, such as CVS, Subversion, and Perforce, have a single server that contains all the versioned files, and a number of clients that check out files from that central place.
+-  Advantages:
+     For example, everyone knows to a certain degree what everyone else on the project is doing. 
+     Administrators have fine-grained control over who can do what; 
+     it’s far easier to administer a CVCS than it is to deal with local databases on every client.
+
+- Disadvantages:
+     single point of failure that the centralized server represents.
+     If the hard disk the central database is on becomes corrupted, and proper backups haven’t been kept, you lose absolutely everything –
+     Local VCS systems suffer from this same problem – whenever you have the entire history of the project in a single place, you risk losing everything.
+
+
+
+
+Distributed Version Control Systems
+- In computer programming, distributed revision control, also known as distributed version control or decentralized version control, allows many software developers to work on a given project without requiring them to share a common network.
+   The software revisions are stored in a distributed revision control system (DRCS), also known as a distributed version control system (DVCS).
+- In a DVCS (such as Git, Mercurial, Bazaar or Darcs), clients don’t just check out the latest snapshot of the files: they fully mirror the repository.
+- Thus if any server dies, and these systems were collaborating via it, any of the client repositories can be copied back up to the server to restore it.
+- Every clone is really a full backup of all the data.
+- Furthermore, many of these systems deal pretty well with having several remote repositories they can work with, so you can collaborate with different groups of people in different ways simultaneously within the same project.
+- This allows you to set up several types of workflows that aren’t possible in centralized systems, such as hierarchical models
+
+Server Computer (Version Database)
+	 ^							 	 ^
+	 |							 	 |
+	 |							 	 |
+	 V							 	 V
+Computer A (Version Database)		<------------>		Computer B (Version Database)
+
+
+Diagrammatic representation of Centralized and Distributed Version Control
+Pros and Cons
+---------------------
+GIT:
+1) Snapshots, Not Differences
+- Default: Storing data as changes to a base version of each file.
+- GIT: Storing data as snapshots of the project over time.
+       Every time you commit, or save the state of your project in GIT, it basically takes a picture of what all your files look like at that moment and stores a 
+       reference to that snapshot.
+
+       To be efficient, if files have not changed, Git doesn’t store the file again, just a link to the previous identical file it has already stored. Git thinks 
+       about its data more like a stream of snapshots.
+2) Nearly Every Operation Is Local (Local Repository)
+   - Network Latency
+   - This also means that there is very little you can’t do if you’re offline or off VPN.
+
+3) Git Has Integrity
+
+
+=====================================================================================================================================================================================
+GIT - MISC:
+https://confluence.atlassian.com/display/STASH/Basic+Git+commands
+https://www.atlassian.com/git/tutorials/comparing-workflows/
+SourceTree from GIT Client from Attlasian
+https://stash-digital.jpmchase.net/projects (Workflow Strategies in STASH)
+https://www.atlassian.com/git/tutorials/
+https://cigsharepoint.jpmchase.net/teamsite/QA_Automation_Group/Conslidated%20Process%20Documents/02-ATDD%20Architect/04%20-%20GIT/GIT%20Work%20flow.pptx
+
+
+REPO    : https://stash-digital.jpmchase.net/projects/DIG
+PRE-REQUISITES:
+	1) GITHUB.COM ACCOUNT
+	2) SOFTWARE: SOURCE FORGE
+
+USEFUL LINKS:      
+      1) https://github.com/GSoft-SharePoint/Dynamite/wiki/Getting-started-with-SourceTree,-Git-and-git-flow (V.V.V. IMP)
+      2) http://www.quora.com/What-is-the-difference-between-git-stash-and-git-commit (GIT-STASH)
+      3) http://stackoverflow.com/questions/315911/git-for-beginners-the-definitive-practical-guide
+      4) CONCEPTS TO KNOW:
+	 a) What is DVCS? 
+         b) What is GIT?
+         c) What is STASH?
+         d) Repositories, Branches, Commits, Issues and Pull Requests, Fork, Clone, Fetch
+         e) Familiarize....
+		•Cloning a repo
+		•Staging and committing changes
+		•Branching and merging
+		•Fetching and pulling
+		•Pushing to your origin repo on github.com
+		•Managing multiple remotes(origin, upstream, contributors' forks, etc.)
+
+
+
+1) What is the difference between a git repository and the source?
+	A git repository is simply your working directory for your source code with an additional (hidden) folder ".git/". 
+	This hidden meta folder keeps track of the commit history, branches, and everything else git does behind the scenes to act as a version control system.
+	The source code alone is simply just the source code. When Git is not involved, it is no longer a repository, and simply just your working directory. 
+
+2) Git: What is the differences between "forking," "cloning," and downloading the project as a zip?
+	- "fork" creates a copy of the project hosted on your own GitHub account.
+	- "clone" uses git software on your computer to download the source code and it's entire version history.
+          "clone" creates a "working" git repo on wherever you cloned it to
+	- "download zip" creates a zip file of just the current version of the source code for you to download - the project history is not included.
+	  "download zip" just give you a copy of the current files but not a working git repo locally
+
+3) Git (revision control): What's the difference between committing and pushing?
+	- When you commit your changes, you save the changes as a single logical set in your local repository. 
+          You can do this multiple times without pushing. Until they are pushed, they do not leave your local repository meaning the remote repository won't have these sets of changes yet, so when other people pull from the remote repository, your commits won't be pulled.
+	- When you push, all the commits you made in your local repository will be transferred to the remote repository, so when other developers who share this remote repository pull, they will have your changes transferred to their local repositories.
+
+4) Git (revision control): What is the difference between adding and committing?
+	- You have to add files to a staging queue.
+	- This staging queue lets you include only certain added/modified/deleted files so you can make lots of edits to your repo and then save commits logically based on certain features or something like that.
+	- when you're ready you commit this queue which saves these changes to the official log.
+	- You can then push the commit log to transfer them to all the other repositories (since Git is decentralized).
+
+COMMANDS:
+----------
+a) git init - creates that hidden meta folder and thus upgrades your working directory into a git repository.
+
+b) Git doesn't just automatically track every file within the directory you need to use the following commands to tell it to track the changes on a file. 
+   git add <FILENAME>
+   git commit
+   git push  - if you have a remote repository stored on a server like GitHub you would then use the git push command.
+
+c) git stash  -- The command saves your local modifications away and reverts the working directory to match the HEAD commit. 
+                 It allows you to store your uncommited modifications into a buffer area called stash, and deletes it from the branch you are working on.
+                 You may later retreive them by applying the stash.
+
+d) git commit -- This records your change for next push and this event is recorded in history too.
+
+e) Is there a way to view the contents of a git stash without applying it?
+   With gitk:
+   gitk stash@{0}
+
+   With git stash:
+   git stash show -p stash@{0}
+
+f) What's the easiest way to tell how many non-merge commits users have made to a git repository?
+	git shortlog -s -n --no-merges
+
+
+g) Git (revision control): What's an intuitive explanation of committing, pushing, adding, pulling, and "checking out"?
+	Adding: Git needs to calculate what changes you've made to your working Git repository before it can create a snapshot. 
+                To explain it in a simpler way, in order to commit your changes, Git needs to know exactly what changes have you made. This process is called adding.
+        Committing: This is when you save a particular snapshot of development on your local backup. (Tier 1 - Tier 2)
+	Pushing: The process of pushing all the changes that you've commited, i.e. saved on your local Git directory, to the remote repository. (Tier 2 - Tier 3)	
+	Pulling: There must be other developers working on the project that you're working upon and quite often you'll find yourself in situations where the project had advanced 
+                 and the copy (clone) of the repository that you've been working upon is older. Git will NOT allow you to push anything on the server under these circumstances.
+                 You'll need to pull the changes, i.e. you'll have to retrieve all the new changes that have been made to the project, then you can test your module again based 
+                 on those changes, only then you shall be allowed to push to the Git remote repository. (Tier 3 - Tier 1)
+        Checking out: Checking out is a different process. It needs you to understand branching in Git. Let us say you are working at Facebook. You are developing the chat client for them
+                      Typically, you'd clone of a copy of the code of Facebook, create a branch out of it, titles "Chat Client - revamped", and start working upon it. 
+                      Zuckerburg drops by that evening and asks you to keep working on the timeline side by side. Now you're in a mess because you just can't let any of the two break.
+                      What you do is, you branch the code from its last perfectly working position, i.e. the repository where you cloned from, and you call this branch, "Time Line". 
+                      You'll need to be constantly switching between these two branches. This is what checking out means.You can switch between two copies of backed up data, 
+                      without any one of them affecting the other. 
+
+	Checking out: This is making a copy of something so that you can try out changes to  it without exposing other people to your changes just yet.
+	Committing:   This is taking a snapshot of the changes you made, so that, if you make  more changes and don't like them, you can get back the snapshot later;  kind of like multiple levels of "undo"
+	Adding:       This is creating something new, and getting it ready to be shared with others.
+	Pushing:      This is sharing your changes or new creations with others.
+	Pulling:      This is, accepting work from someone else, and making it part of your own work.
+
+	http://eagain.net/articles/git-for-computer-scientists/
+
+	Merging and Branching: http://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+		It’s worth noting here that the work you did in your hotfix branch is not contained in the files in your iss53 branch. If you need to pull it in, you can merge your master branch
+                into your iss53 branch by running git merge master, or you can wait to integrate those changes until you decide to pull the iss53 branch back into master later.
+
+h) What's the difference between 'git pull'and 'git fetch?
+   - In the simplest terms, git pull does a git fetch followed by a git merge.
+   - You can do a git fetch at any time to update your remote-tracking branches under refs/remotes/<remote>/. This operation never changes any of your own local branches under refs/heads, and is safe to do without changing your working copy.
+   - A git pull is what you would do to bring a local branch up-to-date with its remote version, while also updating your other remote-tracking branches.
+
+i) Git (revision control): What are the differences between submodules and sub-tree merging?
+   - A subtree merge permanently integrates the contents and history of the subtree into the parent repository at the subtree of the merge.
+   - A submodule is simply a reference to a specific commit in the submodule. A history  of changes to referenced commit are kept in the parent module, but no contents or history of the submodule are tracked in the parent module.
+
+--------------------------------------------
+DIAGRAM:
+--------------------------------------------
+
+MASTER REPOSITORY	      - GIT Workflow, New,Clone
+|		     |
+v		     v
+Branch	Fork 	(Auto Sync)   - Pull Request,Merge
+(Used for
+ Defect Fix)
+
+a) Repository,Fork,Branch,Clone
+b) stash,commit,push,pull
+c) branch
+   merge  - into master when branch work is complete
+   three-way merge - Git does a simple three-way merge, using the two snapshots pointed to by the branch tips (branch - 1 and current master - 1) and the common ancestor of the two
+   merge commit - Instead of just moving the branch pointer forward, Git creates a new snapshot that results from this three-way merge and automatically creates a new commit that points to it. This is referred to as a merge commit, and is special in that it has more than one parent.
+   merge conflict - If your fix for issue #53 modified the same part of a file as the hotfix, you’ll get a merge conflict that looks something like this:
+   checkout - check out the branch you wish to merge into and then run the git merge command
+   branch has moved forward,upstream, fast-forward)
+d) fetch,discard,merge,rebase
+
+--------------------------------------------
+ARCHITECTURE:
+--------------------------------------------
+TIER 1 - The directory that YOU work upon.
+TIER 2 - The second tier is the staging area. This staging area, is NOT on the remote repository that you create.
+         So, the second tier of Git, is the .git directory, where all your saved points (just like point A) are temporarily stored for you to return to that point any time you want.
+TIER 3 - The third and final tier in the Git architecture is the remote repository. Yes, the one that you create on Github/Bitbucket etc. 
+         Once your changes are delivered here, you have officially contributed your work to the product. 
+
+SHA:
+----
+- The Secure Hash Algorithm is a family of cryptographic hash functions published by the National Institute of Standards and Technology (NIST) 
+  as a U.S. Federal Information Processing Standard (FIPS), including: SHA-0,SHA-1,SHA-2,SHA-3.
+
+- A cryptographic hash function is a hash function which is considered practically impossible to invert, that is, to recreate the input data from its hash value alone.
+  These one-way hash functions have been called "the workhorses of modern cryptography".[1] The input data is often called the message, and the hash value is often called the 
+  message digest or simply the digest.
+
+- A hash function is any function that can be used to map digital data of arbitrary size to digital data of fixed size. 
+  The values returned by a hash function are called hash values, hash codes, hash sums, or simply hashes. 
+  One use is a data structure called a hash table, widely used in computer software for rapid data lookup. 
+  Hash functions accelerate table or database lookup by detecting duplicated records in a large file. An example is finding similar stretches in DNA sequences.
+  They are also useful in cryptography. A cryptographic hash function allows one to easily verify that some input data maps to a given hash value, but if the input data is unknown,
+  it is deliberately difficult to reconstruct it (or equivalent alternatives) by knowing the stored hash value.
+  This is used for assuring integrity of transmitted data, and is the building block for HMACs, which provide message authentication.
